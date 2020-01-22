@@ -1,0 +1,20 @@
+version: "3.1"
+services:
+  service1:
+    build:
+      context: .
+      dockerfile: src/Service1/Dockerfile
+
+  identity-service:
+    build:
+      context: .
+      dockerfile: src/IdentityService/Dockerfile
+
+  gateway:
+    build:
+      context: .
+      dockerfile: src/Gateway/Dockerfile
+
+    ports:
+      - 80:80
+      - 81:81
