@@ -10,12 +10,11 @@
                 }
             ],
             "UpstreamPathTemplate": "/s1/wf",
-            "RateLimitOptions": {
-                "ClientWhitelist": [],
-                "EnableRateLimiting": true,
-                "Period": "1s",
-                "PeriodTimespan": 1,
-                "Limit": 1
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "testKey",
+                "AllowedScopes": [
+                    "api1"
+                ]
             }
         }
     ],

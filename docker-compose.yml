@@ -9,8 +9,6 @@ services:
     build:
       context: .
       dockerfile: src/IdentityService/Dockerfile
-    ports:
-      - 90:80
 
   gateway:
     build:

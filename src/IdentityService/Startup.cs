@@ -26,12 +26,6 @@ namespace IdentityService {
                 .AddInMemoryApiResources(Config.GetApiResources())
                 .AddInMemoryClients(Config.GetClients());
 
-            services.AddAuthentication("Bearer")
-                .AddIdentityServerAuthentication(options => {
-                    options.Authority = "http://localhost:80";
-                    options.RequireHttpsMetadata = false;
-                    options.ApiName = "api1";
-                });
             services.AddControllers();
         }
 
@@ -41,10 +35,8 @@ namespace IdentityService {
             }
 
             app.UseIdentityServer();
-            // app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints => {
                 endpoints.MapControllers();
             });

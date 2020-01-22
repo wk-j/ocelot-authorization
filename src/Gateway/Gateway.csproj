@@ -5,12 +5,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Ocelot" 
-            Version="14.0.3" />
+        <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
+        <PackageReference Include="Ocelot" Version="14.0.3" />
     </ItemGroup>
 
     <ItemGroup>
-        <Content Update="ocelot.json" 
-            CopyToPublishDirectory="Always" />
+        <Content Update="ocelot.json" CopyToPublishDirectory="Always" />
     </ItemGroup>
 </Project>

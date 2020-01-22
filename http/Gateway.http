@@ -1,0 +1,11 @@
+GET http://localhost:5000/api/token/authorize
+
+###
+GET http://localhost/api/token/authorize
+
+###
+GET http://localhost/api/token/authorize
+
+###
+GET http://localhost/s1/wf
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Ind3WTJwVlQ1TU1Mc2NRMV9OakRXdkEiLCJ0eXAiOiJhdCtqd3QifQ.eyJuYmYiOjE1Nzk2ODg3MzYsImV4cCI6MTU3OTY5MjMzNiwiaXNzIjoiaHR0cDovL2lkZW50aXR5LXNlcnZpY2UiLCJhdWQiOiJhcGkxIiwiY2xpZW50X2lkIjoiY2xpZW50Iiwic2NvcGUiOlsiYXBpMSJdfQ.JeMmsRjIpP3frSQZ4bSFZJ-zBZIDciO_Z3DQlMoCASVWZOmQkRL2MfRa3XcFUXXrmIUUtwpL4UIpfwOU8l6rwXATYEqksAoxabupVd4px5SvTANK3NB6I5TlLOzoiOe3uuYlnI2qEwoe9M-4MTxIAnQvkuRhLV-SaR53CT2YzqE042hqUcErGFt7Sd3krN-QWa-s1ND3fBAArMiu5hwsJI9hgZDJQVU7mveBpIPDdpfm4m678V--Y4f1L_uEL7RwV8wYM_XbEfker90yzX2G4oTUQqBepP-jpEyXm69SEoeHgFNycyK7Y7nf5c3LR8pyxoF8G0-0qaCQJJdJVOjhGQ

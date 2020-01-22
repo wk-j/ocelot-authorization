@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using IdentityServer4.AccessTokenValidation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -22,6 +23,17 @@ namespace Gateway {
         public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services) {
+
+            var key = "testKey";
+            Action<IdentityServerAuthenticationOptions> opt = o => {
+                o.Authority = "http://identity-service:80";
+                o.ApiName = "api1";
+                o.RequireHttpsMetadata = false;
+            };
+
+            services.AddAuthentication(IdentityServerAuthenticationDefaults.AuthenticationScheme)
+                .AddIdentityServerAuthentication(key, opt);
+
             services.AddControllers();
             services.AddOcelot();
         }
@@ -31,17 +43,13 @@ namespace Gateway {
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseOcelot().Wait();
-
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints => {
                 endpoints.MapControllers();
             });
+            app.UseOcelot().Wait();
         }
     }
 }
