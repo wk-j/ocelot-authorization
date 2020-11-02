@@ -1,5 +1,7 @@
 ## Ocelot Authorization
 
+- [x] Auto attach authorize header
+
 ```bash
 docker-compose build
 docker-compose up
@@ -8,17 +10,10 @@ docker-compose up
 ## Gateway
 
 ```bash
-open http://localhost/s1/wf
-open http://localhost/WeatherForecast
-open http://localhost/api/token/authorize
-```
-
-## Identity Service
-
-```bash
-docker-compose build identity-service
-docker-compose up identity-service
-open http://localhost:90/WeatherForecast
+http http://localhost/s1/wf
+http http://localhost/secure-web/wf --auth api:or2020api
+http http://localhost/secure-web/wf
+http http://localhost/api/token/authorize
 ```
 
 ## Resource

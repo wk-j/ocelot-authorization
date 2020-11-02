@@ -1,5 +1,5 @@
 {
-    "ReRoutes": [
+    "Routes": [
         {
             "DownstreamPathTemplate": "/WeatherForecast",
             "DownstreamScheme": "http",
@@ -16,6 +16,17 @@
                     "api1"
                 ]
             }
+        },
+        {
+            "DownstreamPathTemplate": "/WeatherForecast",
+            "DownstreamScheme": "http",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "secure-web",
+                    "Port": 80
+                }
+            ],
+            "UpstreamPathTemplate": "/secure-web/wf"
         }
     ],
     "GlobalConfiguration": {

@@ -39,6 +39,22 @@ namespace Gateway {
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
+
+            var configuration = new OcelotPipelineConfiguration {
+                PreErrorResponderMiddleware = async (ctx, next) => {
+                    var path = ctx.Request.Path;
+                    var method = ctx.Request.Method;
+                    Console.WriteLine("Request -- [{1}] {0}", path, method);
+
+                    var auth = ctx.Request.Headers["Authorization"];
+                    if (auth.Count == 0) {
+                        ctx.Request.Headers.Add("Authorization", "Basic YXBpOm9yMjAyMGFwaQ==");
+                    }
+
+                    await next.Invoke();
+                },
+            };
+
             if (env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
             }
@@ -49,7 +65,7 @@ namespace Gateway {
             app.UseEndpoints(endpoints => {
                 endpoints.MapControllers();
             });
-            app.UseOcelot().Wait();
+            app.UseOcelot(configuration).Wait();
         }
     }
 }

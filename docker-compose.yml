@@ -18,3 +18,8 @@ services:
     ports:
       - 80:80
       - 81:81
+
+  secure-web:
+    build:
+      context: .
+      dockerfile: src/SecureWeb/Dockerfile
